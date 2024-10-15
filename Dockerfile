@@ -16,5 +16,8 @@ COPY . .
 # Expose the port your app will run on
 EXPOSE 5002
 
+# Ensure there are no conflicting entry points
+ENTRYPOINT []
+
 # Start the Node.js application
 CMD ["node", "index.js"]
