@@ -9,7 +9,7 @@ app.post('/webhook', (req, res) => {
     console.log('Received webhook:', req.body);
     
     // Execute your script or Docker command
-    exec('deploy 1', (error, stdout, stderr) => {
+    exec('deploy 2', (error, stdout, stderr) => {
         if (error) {
             console.error(`Error executing script: ${error}`);
             return res.status(500).send('Script execution failed');
