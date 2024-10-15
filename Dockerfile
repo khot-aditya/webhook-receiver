@@ -16,6 +16,9 @@ COPY . .
 # Expose the port your app will run on
 EXPOSE 5002
 
+# Ensure there are no conflicting entry points
+ENTRYPOINT []
+
 # Set the environment path so the deploy command is accessible
 ENV PATH="/bin:/usr/local/bin:${PATH}"
 
