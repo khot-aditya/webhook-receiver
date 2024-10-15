@@ -9,7 +9,7 @@ app.post('/webhook', (req, res) => {
     console.log('Received webhook:', req.body);
     
     // Execute your script or Docker command
-    exec('sh ./deploy.sh', (error, stdout, stderr) => {
+    exec('deploy 1', (error, stdout, stderr) => {
         if (error) {
             console.error(`Error executing script: ${error}`);
             return res.status(500).send('Script execution failed');
@@ -19,7 +19,7 @@ app.post('/webhook', (req, res) => {
     });
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = 5002;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
