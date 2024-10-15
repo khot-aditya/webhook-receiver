@@ -20,4 +20,4 @@ EXPOSE 5002
 ENV PATH="/bin:/usr/local/bin:${PATH}"
 
 # Start the Node.js application
-CMD ["node", "app.js"]
+CMD ["node", "index.js"]
