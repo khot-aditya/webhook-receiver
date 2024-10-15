@@ -12,10 +12,10 @@ app.post('/webhook', (req, res) => {
     exec('deploy 2', (error, stdout, stderr) => {
         if (error) {
             console.error(`Error executing script: ${error}`);
-            return res.status(500).send('Script execution failed');
+            return res.status(500).send(`Script execution failed: ${error}`);
         }
         console.log(`Script output: ${stdout}`);
-        res.status(200).send('Webhook received and script executed');
+        res.status(200).send(`Webhook received and script executed ${stdout}`);
     });
 });
 

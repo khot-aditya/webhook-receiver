@@ -1,26 +1,19 @@
-# Use the official Node.js 18 Alpine image as a parent image
+# Use a lightweight Node.js 18 image
 FROM node:18-alpine
 
-# Set the working directory inside the container
-WORKDIR /app
+# Set the working directory in the container
+WORKDIR /usr/src/app
 
-# Copy package.json and package-lock.json to install dependencies
+# Copy the package.json and install dependencies
 COPY package*.json ./
 
-# Install dependencies (using --production for only production dependencies)
 RUN npm install --production
 
-# Copy the rest of the application code to the working directory
+# Copy the rest of the application code
 COPY . .
 
-# Expose the port your app will run on
+# Expose the port on which the Node.js server runs
 EXPOSE 5002
 
-# Ensure there are no conflicting entry points
-ENTRYPOINT []
-
-# Set the environment path so the deploy command is accessible
-ENV PATH="/bin:/usr/local/bin:${PATH}"
-
-# Start the Node.js application
+# Run the server
 CMD ["node", "index.js"]
